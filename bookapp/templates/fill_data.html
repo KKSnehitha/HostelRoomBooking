@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Step-1</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px #333;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        input,select,textarea {
+            width: 100%;  
+            font-size: 15px;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-weight: lighter;
+        }
+        button {
+            display:block;
+            margin:20px auto 0;
+            padding:20px 40px;
+            font-size:18px;
+            background-color: #19a7cec7;
+            color: #333;
+            border-radius:8px;
+            cursor:pointer;
+            transition:box-shadow 0.3s ease;
+        }
+        button:hover {
+           box-shadow:0 8px 20px #333;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>Fill the data correctly</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Next</button>
+    </form>
+</body>
+</html>

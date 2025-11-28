@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ebf0f6e7;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #fff;
+            width: 450px;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px #333;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 15px 35px;
+            font-size: 18px;
+            background-color: #19a7ce;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+           transform: translateY(-3px);
+           box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+
+        <div class="section">
+            <h1>To book your room, please click below</h1>
+            <form action="{% url 'student_info' %}" method="get">
+                <button type="submit"><strong>Room Booking</strong></button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h1>To see the hostel allocation, please click below</h1>
+            <form action="{% url 'dashboard' %}" method="get">
+                <button type="submit"><strong>Room Allocation</strong></button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

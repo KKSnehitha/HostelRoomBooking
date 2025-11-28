@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Allocations</title>
+
+    <style>
+        body {
+            background-color: #f7f7f7;
+            padding:20px;
+            text-align: center;
+        }
+        h1{
+            color:#333;
+            margin-bottom:20px;
+        }
+        table {
+            width: 100%;
+            margin: 20px auto;
+            border-collapse:collapse;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        th,td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #19a7cec7;
+            color: white;
+        }
+        ul{
+            list-style-type:none;
+            padding-left:0;
+        }
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding: 10px 20px;
+            background: #19a7cec7;
+            color: white;
+            border-radius: 5px;
+            transition:box-shadow 0.3s ease;
+        }
+        a:hover{
+            box-shadow:0 8px 20px #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Room Allocation Dashboard</h1>
+    <table>
+        <tr>
+            <th>Room Number</th>
+            <th>Capacity</th>
+            <th>Occupied</th>
+            <th>Available Beds</th>
+            <th>Members</th>
+        </tr>
+
+        {% for entry in room_data %}
+        <tr>
+            <td>{{ entry.room.room_no }}</td>
+            <td>{{ entry.room.capacity }}</td>
+            <td>{{ entry.occupied }}</td>
+
+            {% if entry.available == 0 %}
+                <td style="color:red;font-weight:bold;">Full</td>
+            {% else %}
+                <td>{{ entry.available }}</td>
+            {% endif %}
+
+            <td>
+                {% if entry.students %}
+                    <ul>
+                        {% for booked in entry.students %}
+                            <li>{{ booked.student.name }} - {{ booked.student.reg_no }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <span style="color: gray;">Not yet booked</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/">Go Back</a>
+
+</body>
+</html>

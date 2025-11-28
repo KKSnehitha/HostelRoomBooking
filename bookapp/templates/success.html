@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success Page</title>
+    <style>
+        body{
+            font-size:24px;
+            text-align:center;
+        }
+        .card{
+            background: white;
+            width: 420px;
+            margin: auto;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px #333;
+            text-align: left; 
+        }
+        .card h2{
+            text-align: center;
+        }
+        a{
+            display:inline-block;
+            margin-top:20px;
+            padding: 10px 20px;
+            background: #19a7cec7;
+            color: white;
+            border-radius: 5px;
+            transition:box-shadow 0.3s ease;
+        }
+        a:hover{
+            box-shadow:0 8px 20px #333;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h2>Booking Successful</h2>
+    <hr>
+    <p><strong>Name:</strong>{{student.name}}</p>
+    <p><strong>Reg Num:</strong>{{student.reg_no}}</p>
+    <p><strong>Email:</strong>{{student.email}}</p>
+    <p><strong>Room Number:</strong>{{room.room_no}}</p>
+    <p><strong>Room Capacity:</strong>{{room.capacity}} beds</p>
+    <p>Thank you!Your booking has been confirmed.</p>
+    <hr>
+</div>
+    <a href="{% url 'dashboard' %}">View Room Allocations</a><br>
+    <a href="{% url 'know_roommates' room.room_no %}">Know Your Roommates</a>
+</body>
+</html>
