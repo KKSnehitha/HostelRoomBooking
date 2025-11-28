@@ -4,14 +4,17 @@ from django.http import HttpResponse
 from .forms import RoomForm,SelectForm
 from .models import Room,Student,Booking
 import smtplib
+from dotenv import load_dotenv
+import os
 
 def home_page(request):
     return render(request, "home.html")
 
 def confirm_mail(to,msg):
-    sender="snehi1811@gmail.com"
-    password="fuon vutd tpei utuf"
     try:
+        load_dotenv()
+        sender=os.environ.get("sender")
+        password=os.environ.get("password")
         server=smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         server.login(sender,password)
